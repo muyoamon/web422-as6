@@ -42,6 +42,10 @@ passport.use(strategy)
 
 app.use(passport.initialize());
 
+app.get("/api", (req, res) => {
+    res.json({message: "API listening..."});
+})
+
 app.post("/api/user/register", (req, res) => {
     userService.registerUser(req.body)
     .then((msg) => {
